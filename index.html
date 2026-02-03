@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day, Minnu ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ====== FLOATING HEARTS BACKGROUND ====== -->
+    <div class="hearts-container"></div>
+
+    <!-- ====== STARS BACKGROUND ====== -->
+    <div class="stars-background"></div>
+
+    <!-- ====== MAIN CONTAINER ====== -->
+    <main class="main-container">
+
+        <!-- ========== SECTION 1: INTRO ========== -->
+        <section id="intro-section" class="section intro-section">
+            <div class="intro-content">
+                <h1 class="intro-title">Hey Minnu<span class="heart-beat">❤️</span></h1>
+                <p class="intro-subtitle">I made something just for you...</p>
+                <button class="btn-primary intro-btn" onclick="startJourneyAndMusic()">
+                    Tap to begin <span class="sparkle">✨</span>
+                </button>
+            </div>
+            <div class="intro-glow"></div>
+        </section>
+
+        <!-- ========== SECTION 2: LOVE STORY ========== -->
+        <section id="love-story-section" class="section love-story-section">
+            <div class="section-content">
+                <h2 class="section-title">Our Story</h2>
+                
+                <!-- ===== CUSTOMIZE THIS TEXT ===== -->
+                <!-- Feel free to modify the love story below to reflect your real journey together -->
+                <div class="story-text-container">
+                    <p id="typewriter-text" class="story-text">
+                        From the moment you came into my life, everything changed. 
+                        Your smile lights up my darkest days, and your presence makes every moment feel like magic. 
+                        Every laugh we share, every dream we discuss, every silent moment holding your hand—
+                        they all remind me that you're the one I want by my side, forever.
+                    </p>
+                </div>
+
+                <p class="story-subtext">
+                    This is just the beginning of what I want to tell you...
+                </p>
+
+                <button class="btn-secondary" onclick="scrollToNext('feelings-section')">
+                    Continue <span class="arrow">→</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- ========== SECTION 3: FEELINGS & MEMORIES ========== -->
+        <section id="feelings-section" class="section feelings-section">
+            <div class="section-content">
+                <h2 class="section-title">Reasons I Love You</h2>
+
+                <!-- ===== CUSTOMIZE THESE CARDS ===== -->
+                <!-- Add your own feelings and reasons here -->
+                <div class="feelings-grid">
+                    <div class="feeling-card">
+                        <div class="card-icon">💫</div>
+                        <h3 class="card-title">Your Kindness</h3>
+                        <p class="card-text">The way you care about others makes my heart so full.</p>
+                    </div>
+
+                    <div class="feeling-card">
+                        <div class="card-icon">😊</div>
+                        <h3 class="card-title">Your Smile</h3>
+                        <p class="card-text">It's the most beautiful thing I see every single day.</p>
+                    </div>
+
+                    <div class="feeling-card">
+                        <div class="card-icon">🌙</div>
+                        <h3 class="card-title">Your Dreams</h3>
+                        <p class="card-text">I love listening to all your dreams and believing in them with you.</p>
+                    </div>
+
+                    <div class="feeling-card">
+                        <div class="card-icon">💎</div>
+                        <h3 class="card-title">Your Strength</h3>
+                        <p class="card-text">You inspire me every day to be a better person.</p>
+                    </div>
+
+                    <div class="feeling-card">
+                        <div class="card-icon">🎵</div>
+                        <h3 class="card-title">Your Laugh</h3>
+                        <p class="card-text">It's my favorite song in the whole world.</p>
+                    </div>
+
+                    <div class="feeling-card">
+                        <div class="card-icon">✨</div>
+                        <h3 class="card-title">Just You</h3>
+                        <p class="card-text">Everything about you makes me believe in magic.</p>
+                    </div>
+                </div>
+
+                <button class="btn-secondary" onclick="scrollToNext('surprise-section')">
+                    I have something to tell you <span class="arrow">→</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- ========== SECTION 4: SURPRISE REVEAL ========== -->
+        <section id="surprise-section" class="section surprise-section">
+            <div class="section-content">
+                <h2 class="section-title">A Special Message</h2>
+                
+                <button class="btn-primary surprise-btn" onclick="triggerSurprise()">
+                    Minnu, I have something to tell you <span class="envelope">💌</span>
+                </button>
+
+                <!-- Hidden love note that appears on click -->
+                <div id="hidden-message" class="hidden-message hidden">
+                    <div class="message-content">
+                        <!-- ===== CUSTOMIZE THIS MESSAGE ===== -->
+                        <!-- Write your deepest feelings here for Minnu -->
+                        <p class="message-text">
+                            Minnu, these past moments with you have been the most beautiful of my life. 
+                            You've shown me what unconditional love truly means. 
+                            You're my person. You're my home. You're everything I've ever wanted.
+                        </p>
+                        <p class="message-text">
+                            I can't imagine my future without you in it. 
+                            Every day with you is a gift I never want to unwrap too quickly.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Reveal button for message -->
+                <button id="reveal-btn" class="btn-secondary hidden" onclick="revealMessage()" style="margin-top: 30px;">
+                    Reveal Message <span class="arrow">→</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- ========== SECTION 5: THE PROPOSAL ========== -->
+        <section id="proposal-section" class="section proposal-section">
+            <div class="proposal-content">
+                <h2 class="proposal-title">Minnu...</h2>
+                
+                <p class="proposal-question">
+                    <span class="heart-pulse">❤️</span>
+                    Will you be my Valentine?
+                    <span class="heart-pulse">❤️</span>
+                </p>
+
+                <div class="proposal-buttons">
+                    <button class="btn-yes" onclick="handleYes()">
+                        Yes! <span class="heart-emoji">💖</span>
+                    </button>
+                    <button class="btn-always" onclick="handleAlways()">
+                        Always <span class="heart-emoji">💞</span>
+                    </button>
+                </div>
+
+                <p class="proposal-subtitle">
+                    (There's no wrong answer here 😉)
+                </p>
+            </div>
+        </section>
+
+        <!-- ========== SECTION 6: FOREVER ========== -->
+        <section id="forever-section" class="section forever-section">
+            <div class="section-content">
+                <div class="forever-message">
+                    <h2 class="forever-title">Forever Yours</h2>
+                    
+                    <!-- ===== CUSTOMIZE THIS FINAL MESSAGE ===== -->
+                    <p class="forever-text">
+                        No matter where life takes us,<br>
+                        through every season and season,<br>
+                        through every laugh and every tear—<br>
+                        <span class="highlight">You'll always have my heart, Minnu.</span>
+                    </p>
+
+                    <p class="forever-footer">
+                        Happy Valentine's Day to the love of my life. ✨❤️✨
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Celebration confetti (hidden, triggered on proposal YES) -->
+        <div id="celebration-container"></div>
+    </main>
+
+    <!-- ====== AUDIO ELEMENT ====== -->
+    <!-- 
+        CUSTOMIZE THIS:
+        Replace the src with your own romantic background music file.
+        You can use free music from:
+        - https://www.bensound.com/ (piano, romantic tracks)
+        - https://www.zapsplat.com/
+        - https://incompetech.com/
+        
+        MP3 format recommended for best compatibility
+    -->
+    <audio id="backgroundMusic">
+        <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- ====== SCRIPT ====== -->
+    <script src="script.js"></script>
+</body>
+</html>

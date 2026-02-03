@@ -1,0 +1,826 @@
+/* ========================================
+   VALENTINE'S DAY WEBSITE - STYLES
+   Romantic, Dark Theme with Glowing Effects
+   ======================================== */
+
+/* ====== CSS VARIABLES (CUSTOMIZE HERE) ====== */
+:root {
+    /* Color Palette */
+    --primary-dark: #0a0a0a;
+    --secondary-dark: #1a1a2e;
+    --accent-pink: #ff006e;
+    --accent-red: #d62828;
+    --accent-purple: #6a0572;
+    --light-glow: #ffb3d9;
+    --text-primary: #ffffff;
+    --text-secondary: #e0e0e0;
+
+    /* Fonts */
+    --font-elegant: 'Georgia', 'Garamond', serif;
+    --font-modern: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    /* Animations */
+    --transition-smooth: all 0.3s ease-in-out;
+    --transition-slow: all 0.6s ease-in-out;
+}
+
+/* ====== RESET & BASE STYLES ====== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-modern);
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* ====== SCROLLBAR STYLING ====== */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--secondary-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-pink);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-red);
+}
+
+/* ====== BACKGROUND STARS ====== */
+.stars-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.stars-background::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 
+        20% 80% 0 -2px rgba(255, 255, 255, 0.5),
+        60% 10% 0 -2px rgba(255, 255, 255, 0.3),
+        50% 50% 0 -2px rgba(255, 255, 255, 0.8),
+        80% 20% 0 -2px rgba(255, 255, 255, 0.4),
+        10% 30% 0 -2px rgba(255, 255, 255, 0.6),
+        90% 70% 0 -2px rgba(255, 255, 255, 0.5),
+        30% 60% 0 -2px rgba(255, 255, 255, 0.7),
+        70% 80% 0 -2px rgba(255, 255, 255, 0.4),
+        40% 40% 0 -2px rgba(255, 255, 255, 0.6),
+        15% 80% 0 -2px rgba(255, 255, 255, 0.5);
+    animation: twinkle 4s infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+/* ====== FLOATING HEARTS CONTAINER ====== */
+.hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.4;
+    animation: float 8s infinite ease-in;
+    filter: drop-shadow(0 0 10px var(--light-glow));
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.5;
+    }
+    90% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* ====== MUSIC CONTROL BUTTON ====== */
+.music-control {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.music-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 0, 110, 0.2);
+    border: 2px solid var(--accent-pink);
+    color: var(--accent-pink);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    box-shadow: 0 0 20px rgba(255, 0, 110, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.music-btn:hover {
+    background: rgba(255, 0, 110, 0.4);
+    box-shadow: 0 0 30px rgba(255, 0, 110, 0.6);
+    transform: scale(1.1);
+}
+
+.music-btn.playing {
+    animation: pulse-music 1.5s infinite;
+}
+
+@keyframes pulse-music {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(255, 0, 110, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(255, 0, 110, 0.8);
+    }
+}
+
+.music-label {
+    font-size: 0.9rem;
+    color: var(--light-glow);
+    opacity: 0.7;
+    white-space: nowrap;
+}
+
+/* ====== MAIN CONTAINER ====== */
+.main-container {
+    position: relative;
+    z-index: 10;
+}
+
+/* ====== SECTION STYLES ====== */
+.section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.section-content {
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ====== INTRO SECTION ====== */
+.intro-section {
+    background: linear-gradient(180deg, rgba(106, 5, 114, 0.3) 0%, rgba(212, 40, 40, 0.2) 100%);
+    position: relative;
+}
+
+.intro-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 0, 110, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(60px);
+    animation: pulse-glow 4s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.8;
+    }
+}
+
+.intro-content {
+    position: relative;
+    z-index: 5;
+}
+
+.intro-title {
+    font-size: 5rem;
+    font-family: var(--font-elegant);
+    font-weight: 400;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+    text-shadow: 0 0 30px rgba(255, 0, 110, 0.5);
+    animation: slideInDown 1s ease-out;
+}
+
+.intro-title .heart-beat {
+    display: inline-block;
+    animation: heartbeat 1.2s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.3);
+    }
+    50% {
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.intro-subtitle {
+    font-size: 1.5rem;
+    color: var(--light-glow);
+    margin-bottom: 50px;
+    animation: slideInUp 1s ease-out 0.2s both;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ====== BUTTON STYLES ====== */
+.btn-primary,
+.btn-secondary {
+    padding: 15px 40px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-family: var(--font-modern);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent-pink) 0%, var(--accent-red) 100%);
+    color: white;
+    box-shadow: 0 10px 30px rgba(255, 0, 110, 0.3);
+    border: none;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(255, 0, 110, 0.5);
+}
+
+.btn-primary:active {
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: rgba(255, 0, 110, 0.1);
+    color: var(--light-glow);
+    border: 2px solid var(--accent-pink);
+    box-shadow: 0 0 20px rgba(255, 0, 110, 0.2);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 0, 110, 0.2);
+    box-shadow: 0 0 30px rgba(255, 0, 110, 0.4);
+    transform: translateY(-3px);
+}
+
+.sparkle {
+    display: inline-block;
+    animation: sparkle 0.6s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: scale(1.2);
+    }
+}
+
+/* ====== LOVE STORY SECTION ====== */
+.love-story-section {
+    background: linear-gradient(180deg, rgba(26, 26, 46, 0.5) 0%, rgba(10, 10, 10, 0.7) 100%);
+}
+
+.section-title {
+    font-size: 3rem;
+    font-family: var(--font-elegant);
+    margin-bottom: 60px;
+    background: linear-gradient(135deg, var(--light-glow) 0%, var(--accent-pink) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(255, 0, 110, 0.3);
+}
+
+.story-text-container {
+    margin: 40px 0;
+    padding: 30px;
+    background: rgba(255, 0, 110, 0.05);
+    border-left: 4px solid var(--accent-pink);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.story-text {
+    font-size: 1.2rem;
+    line-height: 2;
+    color: var(--text-secondary);
+    font-style: italic;
+    min-height: 150px;
+}
+
+.story-subtext {
+    font-size: 1rem;
+    color: var(--light-glow);
+    margin-top: 40px;
+    opacity: 0.8;
+}
+
+.arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.btn-secondary:hover .arrow {
+    transform: translateX(5px);
+}
+
+/* ====== FEELINGS SECTION ====== */
+.feelings-section {
+    background: linear-gradient(180deg, rgba(212, 40, 40, 0.1) 0%, rgba(106, 5, 114, 0.1) 100%);
+}
+
+.feelings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin: 60px 0;
+}
+
+.feeling-card {
+    background: rgba(26, 26, 46, 0.4);
+    border: 1px solid rgba(255, 0, 110, 0.2);
+    border-radius: 15px;
+    padding: 40px 30px;
+    text-align: center;
+    transition: var(--transition-smooth);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.feeling-card:hover {
+    background: rgba(26, 26, 46, 0.8);
+    border-color: var(--accent-pink);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(255, 0, 110, 0.3);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.feeling-card:hover .card-icon {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.card-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--light-glow);
+}
+
+.card-text {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* ====== SURPRISE SECTION ====== */
+.surprise-section {
+    background: linear-gradient(180deg, rgba(26, 26, 46, 0.7) 0%, rgba(10, 10, 10, 0.9) 100%);
+}
+
+.surprise-btn {
+    animation: glow-pulse 2s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+    0%, 100% {
+        box-shadow: 0 10px 30px rgba(255, 0, 110, 0.3);
+    }
+    50% {
+        box-shadow: 0 10px 50px rgba(255, 0, 110, 0.6);
+    }
+}
+
+.hidden-message {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: var(--transition-slow);
+    margin-top: 0;
+}
+
+.hidden-message.revealed {
+    max-height: 500px;
+    opacity: 1;
+    margin-top: 40px;
+}
+
+.message-content {
+    background: rgba(255, 0, 110, 0.1);
+    border: 2px solid var(--accent-pink);
+    border-radius: 15px;
+    padding: 40px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 30px rgba(255, 0, 110, 0.2);
+}
+
+.message-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.message-text:last-child {
+    margin-bottom: 0;
+}
+
+.envelope {
+    display: inline-block;
+    animation: bounce 0.6s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* ====== PROPOSAL SECTION ====== */
+.proposal-section {
+    background: linear-gradient(180deg, rgba(106, 5, 114, 0.4) 0%, rgba(212, 40, 40, 0.3) 100%);
+    flex-direction: column;
+}
+
+.proposal-content {
+    text-align: center;
+    z-index: 5;
+}
+
+.proposal-title {
+    font-size: 4rem;
+    font-family: var(--font-elegant);
+    margin-bottom: 40px;
+    animation: fadeInDown 1s ease-out;
+}
+
+.proposal-question {
+    font-size: 2.2rem;
+    color: var(--light-glow);
+    margin-bottom: 60px;
+    letter-spacing: 1px;
+}
+
+.heart-pulse {
+    display: inline-block;
+    animation: heartbeat 1.2s infinite;
+    margin: 0 10px;
+}
+
+.proposal-buttons {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.btn-yes,
+.btn-always {
+    padding: 18px 50px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    flex: 1;
+    min-width: 200px;
+    max-width: 300px;
+}
+
+.btn-yes {
+    background: linear-gradient(135deg, #d62828 0%, #ff006e 100%);
+    color: white;
+    box-shadow: 0 10px 40px rgba(214, 40, 40, 0.4);
+}
+
+.btn-yes:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 20px 60px rgba(214, 40, 40, 0.6);
+}
+
+.btn-always {
+    background: linear-gradient(135deg, #ff006e 0%, #d62828 100%);
+    color: white;
+    box-shadow: 0 10px 40px rgba(255, 0, 110, 0.4);
+}
+
+.btn-always:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 20px 60px rgba(255, 0, 110, 0.6);
+}
+
+.heart-emoji {
+    display: inline-block;
+    animation: heartbeat 1.2s infinite;
+}
+
+.proposal-subtitle {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+
+/* ====== FOREVER SECTION ====== */
+.forever-section {
+    background: linear-gradient(180deg, rgba(26, 26, 46, 0.6) 0%, rgba(106, 5, 114, 0.3) 100%);
+    padding: 100px 20px;
+}
+
+.forever-message {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.forever-title {
+    font-size: 3rem;
+    font-family: var(--font-elegant);
+    margin-bottom: 40px;
+    background: linear-gradient(135deg, var(--light-glow) 0%, var(--accent-pink) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.forever-text {
+    font-size: 1.4rem;
+    line-height: 2;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+    font-style: italic;
+}
+
+.forever-text .highlight {
+    color: var(--light-glow);
+    font-weight: 700;
+}
+
+.forever-footer {
+    font-size: 1.2rem;
+    color: var(--accent-pink);
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+/* ====== CELEBRATION CONFETTI ====== */
+.confetti {
+    position: fixed;
+    pointer-events: none;
+}
+
+.confetti-piece {
+    position: absolute;
+    font-size: 2rem;
+    animation: confetti-fall 3s ease-out forwards;
+}
+
+@keyframes confetti-fall {
+    0% {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(100vh) rotate(720deg);
+    }
+}
+
+/* ====== RESPONSIVE DESIGN ====== */
+@media (max-width: 768px) {
+    .intro-title {
+        font-size: 3.5rem;
+    }
+
+    .intro-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .story-text {
+        font-size: 1rem;
+    }
+
+    .feelings-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .proposal-title {
+        font-size: 2.5rem;
+    }
+
+    .proposal-question {
+        font-size: 1.5rem;
+    }
+
+    .proposal-buttons {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .btn-yes,
+    .btn-always {
+        max-width: 100%;
+    }
+
+    .forever-text {
+        font-size: 1.1rem;
+    }
+
+    .music-control {
+        top: 20px;
+        right: 20px;
+    }
+
+    .music-label {
+        display: none;
+    }
+
+    .music-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+
+    .intro-glow {
+        width: 300px;
+        height: 300px;
+    }
+
+    .section {
+        padding: 40px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .intro-title {
+        font-size: 2.5rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .story-text-container {
+        padding: 20px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        padding: 12px 30px;
+        font-size: 0.95rem;
+    }
+
+    .feelings-grid {
+        gap: 15px;
+    }
+
+    .feeling-card {
+        padding: 25px 20px;
+    }
+
+    .proposal-title {
+        font-size: 1.8rem;
+    }
+
+    .forever-title {
+        font-size: 1.8rem;
+    }
+
+    .heart {
+        font-size: 1.5rem;
+    }
+
+    .hidden {
+        display: none !important;
+    }
+}
+
+/* ====== ACCESSIBILITY ====== */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ====== PRINT STYLES ====== */
+@media print {
+    .music-control,
+    .hearts-container {
+        display: none;
+    }
+}
