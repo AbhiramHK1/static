@@ -3,8 +3,23 @@
    Interactivity, Animations, and Logic
    ======================================== */
 
+// ===== CONSTANTS =====
+const VALENTINE_TEXT = 'Valentine';
+const PARTNER_NAME = 'Enter Partner Name Here';
+
 // ===== INITIALIZATION =====
 document.addEventListener('DOMContentLoaded', function() {
+    // Populate valentine and partner name text throughout the page
+    document.getElementById('valentine-title').textContent = VALENTINE_TEXT;
+    document.getElementById('valentine-question').textContent = VALENTINE_TEXT;
+    document.getElementById('valentine-message').textContent = VALENTINE_TEXT;
+    document.getElementById('partner-name-intro').textContent = PARTNER_NAME;
+    document.getElementById('partner-name-button').textContent = PARTNER_NAME;
+    document.getElementById('partner-name-message').textContent = PARTNER_NAME;
+    document.getElementById('partner-name-title').textContent = PARTNER_NAME;
+    document.getElementById('partner-name-final').textContent = PARTNER_NAME;
+    document.getElementById('partner-name-title-page').textContent = PARTNER_NAME;
+    
     initializeHearts();
     setupMusicControl();
     setupScrollAnimations();
@@ -481,7 +496,7 @@ window.addEventListener('scroll', () => {
  * Uncomment for development/debugging
  */
 
-// console.log('Valentine\'s Day Website Loaded ❤️');
+// console.log(`${VALENTINE_TEXT}'s Day Website Loaded ❤️`);
 // console.log('Audio element:', audio);
 // console.log('Is audio playing:', isAudioPlaying);
 
